@@ -284,7 +284,7 @@ def TrackImages():
         for (x, y, w, h) in faces:
             cv2.rectangle(im, (x, y), (x + w, y + h), (225, 0, 0), 2)
             serial, conf = recognizer.predict(gray[y:y + h, x:x + w])
-            if (conf < 70):
+            if (conf > 60):
                 ts = time.time()
                 date = datetime.datetime.fromtimestamp(ts).strftime('%d-%m-%y')
                 timeStamp = datetime.datetime.fromtimestamp(ts).strftime('%H:%M:%S')
